@@ -8,13 +8,13 @@ function getCityFromURL(search) {
   const urlParams = new URLSearchParams(search)
   const city = urlParams.get("city")
   return city;
-
 }
 
 //Implementation of fetch call with a paramterized input based on city
 async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
+  
   try{
     const result = await fetch(config.backendEndpoint + `/adventures?city=${city}`);
     const data = await result.json();
@@ -29,6 +29,7 @@ async function fetchAdventures(city) {
 function addAdventureToDOM(adventures) {
   // TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
+  
   adventures.forEach((adventure) => {
     const adventureEle = document.createElement("div");
     adventureEle.className = "col-6 col-lg-3 mb-4 position-relative";
@@ -55,6 +56,7 @@ function addAdventureToDOM(adventures) {
           `;
        document.getElementById("data").appendChild(adventureEle);   
   })
+
 }
 
 
